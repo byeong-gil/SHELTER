@@ -19,7 +19,7 @@ FS_IMG_PATH=$THIRD_PARTY_DIR/$DEV_WORKSPACE_DIR/lt-vexpress64-openembedded_lamp-
 ATF_OUT_PATH=$THIRD_PARTY_DIR/$DEV_WORKSPACE_DIR/arm-tf/build/fvp/debug
 
 #linux imae
-LINUX_IMAGE=$THIRD_PARTY_DIR/$DEV_WORKSPACE_DIR/linux/out/fvp/mobile_oe/arch/arm64/boot/Image
+LINUX_IMAGE=$THIRD_PARTY_DIR/$DEV_WORKSPACE_DIR/linux/arch/arm64/boot/Image
 
 # command
 FVP_LAUNCH_OPS="-C pctl.startup=0.0.0.0 -C bp.secure_memory=0 \

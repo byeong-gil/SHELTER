@@ -2,7 +2,7 @@ PWD         := $(shell pwd)
 KVERSION    := $(shell uname -r)
 CURRENT_DIR := $(CURDIR)
 PROJ_DIR := $(abspath $(CURRENT_DIR)/../../..)
-KDIR   = $(PROJ_DIR)/third-parties/dev_workspace/linux/out/fvp/mobile_oe
+KDIR   = $(PROJ_DIR)/third-parties/dev_workspace/linux
 
 
 MODULE_NAME  = shelter_manager
