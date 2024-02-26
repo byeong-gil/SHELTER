@@ -52,10 +52,11 @@ dev_workspace_build_linux() {
 	K_CFG=.kernel_config
     fi
     # detect if the linux has already been build
-    LINUX_OUT_DIR=linux/out/$DEV_WORKSPACE_PLATFORM/$DEV_WORKSPACE_LINUX_OE
-    if [[ -d $LINUX_OUT_DIR && ($1 == "build" || $1 == "all") ]]; then
-        pushd $LINUX_OUT_DIR
-        log "Linux has been built at linux/out/$DEV_WORKSPACE_PLATFORM/$DEV_WORKSPACE_LINUX_OE."
+    LINUX_DIR=linux
+    LINUX_IMAGE_LOC=linux/arch/boot/arm64/boot/Image
+    if [[ -f $LINUX_IMAGE_LOC && ($1 == "build" || $1 == "all") ]]; then
+        pushd $LINUX_DIR
+        log "Linux has been built at linux/arch/boot/arm64/boot/Image."
         log "Re-build now (based on .config: $PROJ_CONF_DIR/$K_CFG)."
         log "make -j8 ARCH=arm64 CROSS_COMPILE=$CROSS_COMPILE_LINARO"
 
@@ -68,8 +69,8 @@ dev_workspace_build_linux() {
         # ./build-scripts/build-all.sh -p $DEV_WORKSPACE_PLATFORM -f $DEV_WORKSPACE_FS package
     else
         log "Starting build linux for $DEV_WORKSPACE_PLATFORM..."
-        ./build-scripts/build-linux.sh -p $DEV_WORKSPACE_PLATFORM -f $DEV_WORKSPACE_FS build
-        pushd $LINUX_OUT_DIR
+        # ./build-scripts/build-linux.sh -p $DEV_WORKSPACE_PLATFORM -f $DEV_WORKSPACE_FS build
+        pushd $LINUX_DIR
         log "Re-build (based on .config: $PROJ_CONF_DIR/$K_CFG)."
         log "make -j8 ARCH=arm64 CROSS_COMPILE=$CROSS_COMPILE_LINARO"
 
